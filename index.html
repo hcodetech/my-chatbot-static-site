@@ -1,12 +1,45 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>My First Website</title>
+    <meta charset="UTF-8" />
+    <title>My AI Experiment Lab</title>
     <link rel="stylesheet" href="style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
   <body>
-    <h1>Hello World 🌍</h1>
-    <p>This website is deployed using GitHub Pages.</p>
+    <main class="container">
+      <h1>🚀 My AI Experiment Lab</h1>
+      <p class="tagline">
+        Building small tools that automate my workflow.
+      </p>
+
+      <section class="card">
+        <h2>What is this?</h2>
+        <p>
+          This website is automatically deployed using GitHub + Vercel.
+          Every code change goes live in seconds.
+        </p>
+      </section>
+
+      <section class="card">
+        <h2>Current Project</h2>
+        <p>
+          A chatbot that can modify this website using natural language
+          commands. (Coming soon 👀)
+        </p>
+      </section>
+
+      <footer>
+        <p>
+          Last updated: <span id="time"></span>
+        </p>
+      </footer>
+    </main>
+
+    <script>
+      document.getElementById("time").innerText =
+        new Date().toLocaleString();
+    </script>
   </body>
 </html>
 
