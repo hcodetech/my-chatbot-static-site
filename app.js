@@ -404,7 +404,7 @@ toyModal.addEventListener('click', (e) => {
 checkoutCloseBtn.addEventListener('click', () => {
   checkoutModal.setAttribute('hidden', '');
 });
-checkoutDoneBtn.addEventListener('click', () => {
+checkoutDoneBtn?.addEventListener('click', () => {
   checkoutModal.setAttribute('hidden', '');
 });
 
@@ -414,7 +414,7 @@ checkoutButton.addEventListener('click', () => {
     return;
   }
   // Removed showing checkout modal on page load
-  checkoutModal.removeAttribute('hidden');
+  // checkoutModal.removeAttribute('hidden');
 });
 
 searchNameInput.addEventListener('input', filterToys);
