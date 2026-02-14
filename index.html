@@ -1,340 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Travel Explorer</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
-    <style>
-      /* Reset and base */
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
-      body {
-        font-family: 'Montserrat', sans-serif;
-        background: linear-gradient(135deg, #0f172a 0%, #020617 100%);
-        color: #e5e7eb;
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 2rem 1rem 4rem;
-      }
-      h1 {
-        font-weight: 700;
-        font-size: 3rem;
-        margin-bottom: 0.25rem;
-        letter-spacing: 0.05em;
-        text-shadow: 0 2px 8px rgba(0,0,0,0.7);
-      }
-      h2 {
-        font-weight: 700;
-        font-size: 1.75rem;
-        margin-bottom: 1rem;
-        color: #94a3b8;
-        text-align: center;
-      }
-      p.tagline {
-        font-weight: 400;
-        font-size: 1.125rem;
-        margin-bottom: 2rem;
-        color: #94a3b8;
-        text-align: center;
-        max-width: 480px;
-        text-shadow: 0 1px 4px rgba(0,0,0,0.3);
-      }
-      main.container {
-        background: rgba(255,255,255,0.05);
-        border-radius: 16px;
-        padding: 2rem 2.5rem 3rem;
-        max-width: 480px;
-        width: 100%;
-        box-shadow: 0 8px 24px rgba(0,0,0,0.7);
-      }
-      form {
-        display: flex;
-        flex-direction: column;
-        gap: 1.25rem;
-      }
-      label {
-        font-weight: 600;
-        font-size: 0.9rem;
-        margin-bottom: 0.25rem;
-        color: #cbd5e1;
-      }
-      input[type="text"],
-      input[type="date"],
-      input[type="number"] {
-        padding: 0.75rem 1rem;
-        border-radius: 8px;
-        border: none;
-        font-size: 1rem;
-        font-weight: 500;
-        outline-offset: 2px;
-        outline-color: #64748b;
-        background: rgba(255,255,255,0.1);
-        color: #e5e7eb;
-        transition: background 0.3s ease;
-      }
-      input[type="text"]::placeholder,
-      input[type="number"]::placeholder {
-        color: #94a3b8;
-        font-weight: 400;
-      }
-      input[type="text"]:focus,
-      input[type="date"]:focus,
-      input[type="number"]:focus {
-        background: rgba(255,255,255,0.2);
-      }
-      button[type="submit"] {
-        margin-top: 1rem;
-        background: #2563eb;
-        color: #f1f5f9;
-        font-weight: 700;
-        font-size: 1.125rem;
-        padding: 0.85rem 0;
-        border: none;
-        border-radius: 12px;
-        cursor: pointer;
-        box-shadow: 0 4px 12px rgba(37,99,235,0.6);
-        transition: background 0.3s ease, box-shadow 0.3s ease;
-      }
-      button[type="submit"]:hover,
-      button[type="submit"]:focus {
-        background: #1d4ed8;
-        box-shadow: 0 6px 18px rgba(29,78,216,0.8);
-        outline: none;
-      }
-      #results-section {
-        margin-top: 2.5rem;
-        background: rgba(255,255,255,0.1);
-        border-radius: 16px;
-        padding: 1.5rem 2rem;
-        max-height: 320px;
-        overflow-y: auto;
-        box-shadow: inset 0 0 12px rgba(0,0,0,0.3);
-      }
-      #results-list {
-        list-style: none;
-        display: flex;
-        flex-direction: column;
-        gap: 1.25rem;
-      }
-      #results-list li {
-        background: rgba(255,255,255,0.15);
-        border-radius: 12px;
-        padding: 1rem 1.25rem;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.4);
-        transition: background 0.3s ease;
-      }
-      #results-list li strong {
-        font-size: 1.125rem;
-        display: block;
-        margin-bottom: 0.25rem;
-        color: #e0e7ff;
-      }
-      #results-list li em {
-        font-style: normal;
-        color: #94a3b8;
-        font-size: 0.9rem;
-        display: block;
-        margin-top: 0.25rem;
-        line-height: 1.3;
-      }
-      #results-list li:hover {
-        background: rgba(255,255,255,0.3);
-      }
-      footer {
-        margin-top: 3rem;
-        font-size: 0.85rem;
-        color: #94a3b8;
-        text-align: center;
-        user-select: none;
-        letter-spacing: 0.05em;
-      }
-      footer span#time {
-        font-weight: 600;
-      }
-      @media (max-width: 520px) {
-        main.container {
-          padding: 1.5rem 1.75rem 2.5rem;
-        }
-        h1 {
-          font-size: 2.25rem;
-        }
-        h2 {
-          font-size: 1.5rem;
-        }
-      }
-    </style>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-  </head>
-  <body>
-    <main class="container" role="main" aria-label="Vacation search application">
-      <h1>Travel Explorer</h1>
-      <p class="tagline">Discover your next dream destination with ease.</p>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Toyland - Toys for Kids & Parents</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Toyland</h1>
+    <p class="tagline">Find the Perfect Toy for Every Kid!</p>
+    <nav aria-label="Main navigation">
+      <button id="nav-home" class="nav-button active" aria-current="page">Home</button>
+      <button id="nav-catalog" class="nav-button">Toy Catalog</button>
+      <button id="nav-cart" class="nav-button">Cart (<span id="cart-count">0</span>)</button>
+    </nav>
+  </header>
 
-      <section aria-labelledby="search-title">
-        <h2 id="search-title">Find Your Vacation</h2>
-        <form id="vacation-search-form" aria-describedby="search-desc">
-          <label for="destination">Where do you want to go?</label>
-          <input
-            type="text"
-            id="destination"
-            name="destination"
-            placeholder="e.g. Bali, Paris"
-            autocomplete="off"
-            required
-            aria-required="true"
-            aria-label="Destination"
-          />
+  <main id="main-content">
+    <!-- Homepage -->
+    <section id="home-page" class="page active" aria-label="Homepage">
+      <div class="hero">
+        <img src="assets/hero-illustration.svg" alt="Colorful toys and happy kids illustration" class="hero-image" />
+        <h2 class="hero-tagline">Find the Perfect Toy for Every Kid!</h2>
+      </div>
 
-          <label for="start-date">Start Date</label>
-          <input
-            type="date"
-            id="start-date"
-            name="start-date"
-            required
-            aria-required="true"
-            aria-label="Start date"
-          />
-
-          <label for="end-date">End Date</label>
-          <input
-            type="date"
-            id="end-date"
-            name="end-date"
-            required
-            aria-required="true"
-            aria-label="End date"
-          />
-
-          <label for="budget">Budget (USD)</label>
-          <input
-            type="number"
-            id="budget"
-            name="budget"
-            min="0"
-            placeholder="e.g. 1500"
-            aria-label="Budget in US dollars"
-          />
-
-          <button type="submit" aria-label="Search vacations">Search</button>
-        </form>
+      <section aria-labelledby="categories-title" class="featured-categories">
+        <h3 id="categories-title">Featured Categories</h3>
+        <div class="categories-list">
+          <button class="category-button" data-category="Action Figures">Action Figures</button>
+          <button class="category-button" data-category="Dolls">Dolls</button>
+          <button class="category-button" data-category="Puzzles">Puzzles</button>
+          <button class="category-button" data-category="Educational">Educational</button>
+          <button class="category-button" data-category="Outdoor">Outdoor</button>
+          <button class="category-button" data-category="Board Games">Board Games</button>
+          <button class="category-button" data-category="Art & Craft">Art & Craft</button>
+        </div>
       </section>
 
-      <section
-        class="card"
-        id="results-section"
-        style="display:none;"
-        aria-live="polite"
-        aria-atomic="true"
-        aria-relevant="additions"
-        aria-labelledby="results-title"
-      >
-        <h2 id="results-title">Search Results</h2>
-        <ul id="results-list"></ul>
+      <section aria-labelledby="featured-toys-title" class="featured-toys">
+        <h3 id="featured-toys-title">Featured Toys</h3>
+        <div id="featured-toys-list" class="toy-cards"></div>
       </section>
-    </main>
+    </section>
 
-    <footer>
-      <p>
-        Last updated: <span id="time" aria-live="off"></span>
-      </p>
-    </footer>
+    <!-- Catalog Page -->
+    <section id="catalog-page" class="page" aria-label="Toy Catalog" hidden>
+      <h2>Toy Catalog</h2>
+      <section class="filters" aria-label="Filter and search toys">
+        <div class="filter-group">
+          <label for="search-name">Search by Name</label>
+          <input type="search" id="search-name" placeholder="Search toys..." aria-label="Search toys by name" />
+        </div>
+        <div class="filter-group">
+          <label for="filter-age">Age Range</label>
+          <select id="filter-age" aria-label="Filter by age range">
+            <option value="">All</option>
+            <option value="0-2">0–2</option>
+            <option value="3-5">3–5</option>
+            <option value="6-8">6–8</option>
+            <option value="9-12">9–12</option>
+            <option value="13+">13+</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label for="filter-interest">Interest</label>
+          <select id="filter-interest" aria-label="Filter by interest">
+            <option value="">All</option>
+            <option value="STEM">STEM</option>
+            <option value="Art">Art</option>
+            <option value="Music">Music</option>
+            <option value="Sports">Sports</option>
+            <option value="Animals">Animals</option>
+            <option value="Cars">Cars</option>
+            <option value="Space">Space</option>
+            <option value="Fantasy">Fantasy</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label for="filter-category">Category</label>
+          <select id="filter-category" aria-label="Filter by category">
+            <option value="">All</option>
+            <option value="Action Figures">Action Figures</option>
+            <option value="Dolls">Dolls</option>
+            <option value="Puzzles">Puzzles</option>
+            <option value="Educational">Educational</option>
+            <option value="Outdoor">Outdoor</option>
+            <option value="Board Games">Board Games</option>
+            <option value="Art & Craft">Art & Craft</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label for="filter-price">Max Price ($)</label>
+          <input type="number" id="filter-price" min="0" placeholder="Any" aria-label="Filter by maximum price" />
+        </div>
+        <div class="filter-group">
+          <label for="filter-gender">Gender</label>
+          <select id="filter-gender" aria-label="Filter by gender">
+            <option value="">All</option>
+            <option value="boys">Boys</option>
+            <option value="girls">Girls</option>
+            <option value="unisex">Unisex</option>
+          </select>
+        </div>
+        <button id="clear-filters" aria-label="Clear all filters">Clear Filters</button>
+      </section>
 
-    <script>
-      // Set last updated time
-      document.getElementById("time").innerText = new Date().toLocaleString();
+      <section id="catalog-toys" class="toy-cards" aria-live="polite" aria-atomic="true"></section>
+    </section>
 
-      const form = document.getElementById("vacation-search-form");
-      const resultsSection = document.getElementById("results-section");
-      const resultsList = document.getElementById("results-list");
+    <!-- Cart Page -->
+    <section id="cart-page" class="page" aria-label="Shopping Cart" hidden>
+      <h2>Your Shopping Cart</h2>
+      <div id="cart-items" class="cart-items"></div>
+      <div class="cart-summary">
+        <p>Total: $<span id="cart-total">0.00</span></p>
+        <button id="checkout-button" class="btn-primary">Checkout</button>
+      </div>
+    </section>
 
-      form.addEventListener("submit", function (e) {
-        e.preventDefault();
+    <!-- Toy Detail Modal -->
+    <div id="toy-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+      <div class="modal-content">
+        <button id="modal-close" class="modal-close" aria-label="Close toy details">×</button>
+        <div id="modal-body"></div>
+      </div>
+    </div>
 
-        // Clear previous results
-        resultsList.innerHTML = "";
-        resultsSection.style.display = "none";
+    <!-- Checkout Modal -->
+    <div id="checkout-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="checkout-title" hidden>
+      <div class="modal-content">
+        <button id="checkout-close" class="modal-close" aria-label="Close checkout">×</button>
+        <h3 id="checkout-title">Checkout</h3>
+        <p>Thank you for shopping at Toyland! This is a mock checkout.</p>
+        <button id="checkout-done" class="btn-primary">Close</button>
+      </div>
+    </div>
 
-        const destination = form["destination"].value.trim();
-        const startDate = form["start-date"].value;
-        const endDate = form["end-date"].value;
-        const budget = form["budget"].value;
-
-        if (new Date(startDate) > new Date(endDate)) {
-          alert("End Date must be after Start Date.");
-          return;
-        }
-
-        // Mock vacation data
-        const vacations = [
-          {
-            name: "Beach Paradise Resort",
-            location: "Bali",
-            price: 1200,
-            dates: ["2024-07-01", "2024-07-15"],
-            description: "Relax on the sunny beaches of Bali with all-inclusive amenities.",
-          },
-          {
-            name: "Paris City Tour",
-            location: "Paris",
-            price: 1800,
-            dates: ["2024-08-10", "2024-08-20"],
-            description: "Explore the romantic city of Paris with guided tours and fine dining.",
-          },
-          {
-            name: "Mountain Adventure",
-            location: "Swiss Alps",
-            price: 2000,
-            dates: ["2024-09-05", "2024-09-15"],
-            description: "Experience thrilling hikes and breathtaking views in the Swiss Alps.",
-          },
-          {
-            name: "Tropical Escape",
-            location: "Maldives",
-            price: 2500,
-            dates: ["2024-07-10", "2024-07-20"],
-            description: "Enjoy luxury overwater bungalows and crystal-clear waters.",
-          },
-          {
-            name: "City Lights",
-            location: "New York",
-            price: 1500,
-            dates: ["2024-07-15", "2024-07-25"],
-            description: "Discover the vibrant life of New York City with iconic landmarks.",
-          },
-        ];
-
-        // Filter vacations based on input
-        const filtered = vacations.filter((vac) => {
-          const vacStart = new Date(vac.dates[0]);
-          const vacEnd = new Date(vac.dates[1]);
-          const userStart = new Date(startDate);
-          const userEnd = new Date(endDate);
-
-          const locationMatch = vac.location.toLowerCase().includes(destination.toLowerCase());
-          const dateMatch = vacStart <= userEnd && vacEnd >= userStart;
-          const budgetMatch = budget ? vac.price <= Number(budget) : true;
-
-          return locationMatch && dateMatch && budgetMatch;
-        });
-
-        if (filtered.length === 0) {
-          resultsList.innerHTML = "<li>No vacations found matching your criteria.</li>";
-        } else {
-          filtered.forEach((vac) => {
-            const li = document.createElement("li");
-            li.innerHTML = `<strong>${vac.name}</strong> - ${vac.location} - $${vac.price}<br /><em>${vac.description}</em>`;
-            resultsList.appendChild(li);
-          });
-        }
-
-        resultsSection.style.display = "block";
-        resultsSection.focus();
-      });
-    </script>
-  </body>
+  <script src="app.js"></script>
+</body>
 </html>
