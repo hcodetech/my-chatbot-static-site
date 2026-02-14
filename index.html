@@ -2,31 +2,39 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>My AI Chatbot</title>
+    <title>Vacation Search</title>
     <link rel="stylesheet" href="style.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
   <body>
     <main class="container">
-      <h1>🚀 My AI Experiment Lab</h1>
+      <h1>🌴 Vacation Search</h1>
       <p class="tagline">
-        Building small tools that automate my workflow.
+        Find your perfect getaway with ease.
       </p>
 
       <section class="card">
-        <h2>Our Objective</h2>
-        <p>
-          This website is automatically deployed using GitHub + Vercel.
-          Every code change goes live in seconds.
-        </p>
+        <h2>Search for Vacations</h2>
+        <form id="vacation-search-form">
+          <label for="destination">Destination:</label><br />
+          <input type="text" id="destination" name="destination" placeholder="e.g. Bali, Paris" required /><br /><br />
+
+          <label for="start-date">Start Date:</label><br />
+          <input type="date" id="start-date" name="start-date" required /><br /><br />
+
+          <label for="end-date">End Date:</label><br />
+          <input type="date" id="end-date" name="end-date" required /><br /><br />
+
+          <label for="budget">Budget (USD):</label><br />
+          <input type="number" id="budget" name="budget" min="0" placeholder="e.g. 1500" /><br /><br />
+
+          <button type="submit">Search</button>
+        </form>
       </section>
 
-      <section class="card">
-        <h2>Current Project</h2>
-        <p>
-          A chatbot that can modify this website using natural language
-          commands. (Coming soon 👀)
-        </p>
+      <section class="card" id="results-section" style="display:none;">
+        <h2>Search Results</h2>
+        <ul id="results-list"></ul>
       </section>
 
       <footer>
@@ -37,8 +45,94 @@
     </main>
 
     <script>
-      document.getElementById("time").innerText =
-        new Date().toLocaleString();
+      document.getElementById("time").innerText = new Date().toLocaleString();
+
+      const form = document.getElementById("vacation-search-form");
+      const resultsSection = document.getElementById("results-section");
+      const resultsList = document.getElementById("results-list");
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        // Clear previous results
+        resultsList.innerHTML = "";
+        resultsSection.style.display = "none";
+
+        const destination = form["destination"].value.trim();
+        const startDate = form["start-date"].value;
+        const endDate = form["end-date"].value;
+        const budget = form["budget"].value;
+
+        if (new Date(startDate) > new Date(endDate)) {
+          alert("End Date must be after Start Date.");
+          return;
+        }
+
+        // Simulate fetching vacation data (mock data)
+        const vacations = [
+          {
+            name: "Beach Paradise Resort",
+            location: "Bali",
+            price: 1200,
+            dates: ["2024-07-01", "2024-07-15"],
+            description: "Relax on the sunny beaches of Bali with all-inclusive amenities.",
+          },
+          {
+            name: "Paris City Tour",
+            location: "Paris",
+            price: 1800,
+            dates: ["2024-08-10", "2024-08-20"],
+            description: "Explore the romantic city of Paris with guided tours and fine dining.",
+          },
+          {
+            name: "Mountain Adventure",
+            location: "Swiss Alps",
+            price: 2000,
+            dates: ["2024-09-05", "2024-09-15"],
+            description: "Experience thrilling hikes and breathtaking views in the Swiss Alps.",
+          },
+          {
+            name: "Tropical Escape",
+            location: "Maldives",
+            price: 2500,
+            dates: ["2024-07-10", "2024-07-20"],
+            description: "Enjoy luxury overwater bungalows and crystal-clear waters.",
+          },
+          {
+            name: "City Lights",
+            location: "New York",
+            price: 1500,
+            dates: ["2024-07-15", "2024-07-25"],
+            description: "Discover the vibrant life of New York City with iconic landmarks.",
+          },
+        ];
+
+        // Filter vacations based on input
+        const filtered = vacations.filter((vac) => {
+          const vacStart = new Date(vac.dates[0]);
+          const vacEnd = new Date(vac.dates[1]);
+          const userStart = new Date(startDate);
+          const userEnd = new Date(endDate);
+
+          const locationMatch = vac.location.toLowerCase().includes(destination.toLowerCase());
+          const dateMatch = vacStart <= userEnd && vacEnd >= userStart;
+          const budgetMatch = budget ? vac.price <= Number(budget) : true;
+
+          return locationMatch && dateMatch && budgetMatch;
+        });
+
+        if (filtered.length === 0) {
+          resultsList.innerHTML = "<li>No vacations found matching your criteria.</li>";
+        } else {
+          filtered.forEach((vac) => {
+            const li = document.createElement("li");
+            li.innerHTML = `<strong>${vac.name}</strong> - ${vac.location} - $${vac.price}<br /><em>${vac.description}</em>`;
+            resultsList.appendChild(li);
+          });
+        }
+
+        resultsSection.style.display = "block";
+      });
     </script>
   </body>
 </html>
