@@ -435,6 +435,35 @@ categoryButtons.forEach(btn => {
   });
 });
 
+// Add event listeners to all modal-close buttons to close their modals
+const modalCloseButtons = document.querySelectorAll('.modal-close');
+modalCloseButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    // Find the closest modal ancestor and hide it
+    const modal = button.closest('.modal');
+    if (modal) {
+      modal.setAttribute('hidden', '');
+      // Clear modal body if it's the toy modal
+      if (modal.id === 'toy-modal') {
+        modalBody.innerHTML = '';
+      }
+    }
+  });
+});
+
+// Add event listeners to modals to close when clicking outside modal-content
+const modals = document.querySelectorAll('.modal');
+modals.forEach(modal => {
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.setAttribute('hidden', '');
+      if (modal.id === 'toy-modal') {
+        modalBody.innerHTML = '';
+      }
+    }
+  });
+});
+
 // Load toys data
 async function loadToysData() {
   try {
