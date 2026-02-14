@@ -413,6 +413,7 @@ checkoutButton.addEventListener('click', () => {
     alert('Your cart is empty. Please add some toys before checkout.');
     return;
   }
+  // Removed showing checkout modal on page load
   checkoutModal.removeAttribute('hidden');
 });
 
@@ -459,6 +460,7 @@ function init() {
   updateCartCount();
   openPage('home');
   loadToysData();
+  // Removed popup on page launch
 }
 
 init();
